@@ -4,8 +4,9 @@
   .controller('EditController', function($routeParams, WishlistFactory){
     var vm = this;
     var id = $routeParams.id;
+
     WishlistFactory.getItem(id, function(data){
-      vm.item = data;
+      vm.newItem = data;
     });
     vm.addItem = function(){
       WishFactory.editTodo(id, vm.newItem);
