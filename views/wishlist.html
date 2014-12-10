@@ -5,7 +5,7 @@
         <th>Image</th>
         <th>Link</th>
     </thead>
-    <thead ng-repeat="(item, itemID) in wish.products">
+    <thead ng-repeat="(item, itemID) in wish.items">
         <td>{{item.name}}</td>
         <td>{{item.price}}</td>
         <td><img ng-src="{{item.image}}"></td>
@@ -13,6 +13,6 @@
         <td>
             <a class="btn btn-primary" href="#">Show Item</a>
             <a class="btn btn-primary" href="#">Edit Item</a>
-            <button ng-click="">Delete Book</button>
+            <button ng-click="">Delete Item</button>
     </thead>
 </table>
