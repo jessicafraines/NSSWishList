@@ -11,8 +11,8 @@
         <td><img ng-src="{{item.image}}"></td>
         <td>{{item.link}}</td>
         <td>
-            <a class="btn btn-primary" href="#">Show Item</a>
-            <a class="btn btn-primary" href="#">Edit Item</a>
-            <button ng-click="">Delete Item</button>
+            <a class="btn btn-primary" href="/#/show">Show Item</a>
+            <a class="btn btn-primary" href="/#/:id">Edit Item</a>
+            <button ng-click="wish.deleteItem(itemID)">Delete Item</button>
     </thead>
 </table>
