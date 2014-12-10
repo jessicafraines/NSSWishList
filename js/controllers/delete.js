@@ -1,16 +1,15 @@
 ;(function(){
     'use: strict';
-    angular.module("wishApp") 
-    function deleteItem(itemID, cb){
-      var url = 'https://nss-group-wishlist.firebaseio.com/' + itemID + '.json';
-       
-      $http.delete(url)
-        .success(function(){
-            cb();
-        })
-        .error(function(err){
-        console.log(err);
+    angular.module('wishApp')
+  .controller('DeleteController', function(WishlistFactory){
+      var vm = this;
+
+      vm.deleteItem = function(itemID){      
+        WishlistFactory.deleteItem(itemID, function(){
+          delete vm.items[itemID];
+          console.log('ITEMID', itemID);
         });
-}
+      };
+  });
 })();
 
