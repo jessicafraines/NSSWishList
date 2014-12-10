@@ -1,26 +1,16 @@
 ;( function() {
     'use strict';
-    angular.module('todoApp', ['ngRoute'])
-    .controller('wishController', function($http, $routeParams) {
+    angular.module('wishApp')
+    .controller('WishController', function(WishlistFactory) {
       var vm = this;
-      var id = $routeParams.id;
-      var url = 'https://nss-group-wishlist.firebaseio.com' + id + '.json';
-      $http.get(url)
-      .success(function(data) {
-        vm.newWish = data;
-      }).error(function(err) {
-        alert(err);
+      WishlistFactory.getItems(function(data){
+        vm.items = data;
       });
 
       vm.addItem = function() {
-        $http.post('https://nss-group-wishlist.firebaseio.com/wishlist.json', item)
-        .success(function(data) {
-          cb(data);
-        }).error(function(err) {
-          alert(err);
+        WishlistFactory.addItem(vm.newItem, function(data){
+          vm.items[data.name] = vm.newItem;
         });
-        vm.wish.push(vm.newWish);
-        vm.newWish = null;
       };
     });
   }());

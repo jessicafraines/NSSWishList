@@ -14,7 +14,7 @@
       controllerAs: 'wish'
     })
     .when('/:id', {
-      templateUrl: 'view/wish.html',
+      templateUrl: 'views/wish.html',
       controller: 'ShowController',
       controllerAs: 'show'
     })
