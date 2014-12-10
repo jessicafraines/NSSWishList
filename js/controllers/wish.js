@@ -12,8 +12,14 @@
       alert(err);
     });
     
-    vm.addNewWish = function(){
-      
+    vm.addItem = function(){
+      $http.post('https://nss-group-wishlist.firebaseio.com/wishlist.json', item)
+      .success(function(data){
+        cb(data);
+      })
+      .error(function(err){
+        alert(err);
+      });
       vm.wish.push(vm.newWish);
       vm.newWish = null;
     };
