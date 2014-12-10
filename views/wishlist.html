@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+    <thead>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Link</th>
+    </thead>
+    <thead ng-repeat="(item, itemID) in wish.items">
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td><img ng-src="{{item.image}}"></td>
+        <td>{{item.link}}</td>
+        <td>
+            <a class="btn btn-primary" href="#">Show Item</a>
+            <a class="btn btn-primary" href="#">Edit Item</a>
+            <button ng-click="">Delete Item</button>
+    </thead>
+</table>
