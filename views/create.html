@@ -1,19 +1,19 @@
-<form name="wishForm" ng-submit="wishForm.$valid && wish.addWish()" novalidate>
-  <div class="form-group" ng-class="{'has-error': !wish.newWish.name}">
+<form name="wishForm" ng-submit="wishForm.$valid && wish.addItem()" novalidate>
+  <div class="form-group" ng-class="{'has-error': !wish.item.name}">
     <label class="control-label">name</label>
-    <input class="form-control" type="text" ng-model="wish.newWish.name" required>
+    <input class="form-control" type="text" ng-model="wish.item.name" required>
   </div>
-  <div class="form-group" ng-class="{'has-error': !wish.newWish.price}"> 
+  <div class="form-group" ng-class="{'has-error': !wish.item.price}"> 
     <label class="control-label">price</label>
-    <input class="form-control" type="text" ng-model="wish.newWish.price" required>
+    <input class="form-control" type="text" ng-model="wish.item.price" required>
   </div>
-  <div class="form-group" ng-class="{'has-error: !wish.newWish.image}">
+  <div class="form-group" ng-class="{'has-error: !wish.item.image}">
     <label class="control-label">image</label>
-    <input class="form-control" type="text" ng-model="wish.newWish.link" required>
+    <input class="form-control" type="text" ng-model="wish.item.link" required>
   </div>
   <div class="form-group">
     <label class="control-label">link to site</label>
     <input class="form-control" type="text" required>
   </div>
-  <input type="submit" value="add wish" ng-disabled="wishForm.$invalid">
+  <input type="submit" value="add item" ng-disabled="wishForm.$invalid">
 </form>
