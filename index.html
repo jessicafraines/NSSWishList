@@ -11,8 +11,8 @@
   <body>
     <div class="container" ng-controller="wishControl as wishCtrl">
       <h1>NSS Wish List</h1>
-      <a class="btn btn-primary">All Wishes</a>
-      <a class="btn btn-primary">New Wish</a>
+      <a class="btn btn-primary" href="/#/">All Wishes</a>
+      <a class="btn btn-primary" href="/#/new">New Wish</a>
       <div ng-view>
         
       </div>
@@ -25,6 +25,11 @@
     <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
     <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/controllers/delete.js"></script>
+    <script src="js/controllers/edit.js"></script>
+    <script src="js/controllers/show.js"></script>
+    <script src="js/controllers/wish.js"></script>
     <script src="js/factories/wishlist.js"></script>
   </body>
 </html>
