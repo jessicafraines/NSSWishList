@@ -12,5 +12,11 @@
           vm.items[data.name] = vm.newItem;
         });
       };
+
+      vm.deleteItem = function(itemID){
+        WishlistFactory.deleteItem(itemID, function(){
+          delete vm.items[itemID];
+        });
+      };
     });
   }());
