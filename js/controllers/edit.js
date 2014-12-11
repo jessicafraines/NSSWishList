@@ -8,8 +8,9 @@
     WishlistFactory.getItem(id, function(data){
       vm.newItem = data;
     });
+
     vm.addItem = function(){
-      WishFactory.editTodo(id, vm.newItem);
+      WishlistFactory.editItem(id, vm.newItem);
     };
   })
 }());
