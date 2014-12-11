@@ -5,16 +5,17 @@
         <th>Image</th>
         <th>Link</th>
         <th>Delete</th>
+        <th>View/Edit Item</th>
     </thead>
     <tr ng-repeat="(itemID, item) in wish.items">
         <td>{{item.name}}</td>
-        <td>${{item.price}}</td>
+        <td>{{item.price | currency}}</td>
         <td><img ng-src="{{item.image}}"></td>
-        <td><a ng-href="{{item.link}}">{{item.link}}</a></td>
-        <td>
+        <td class="link"><a ng-href="{{item.link}}">Link to buy it</a></td>
+        <td class="link">
           <button ng-click="wish.deleteItem(itemID)">x</button>
         </td>
-        <td>
+        <td class="link">
           <a class="btn btn-primary" href="/#/{{itemID}}">Show Item</a>
           <a class="btn btn-primary" href="/#/{{itemID}}/edit">Edit Item</a>
         </td>
