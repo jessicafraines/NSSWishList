@@ -5,5 +5,8 @@
   "authors": [
     "thatknitter <kblewis.flt@gmail.com>"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "angular-linkify": "~1.0.0"
+  }
 }
