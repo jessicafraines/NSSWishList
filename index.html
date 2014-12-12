@@ -10,11 +10,13 @@
   </head>
   <body>
     <div class="container">
-      <h1>NSS Wish List</h1>
+      <h1 ng-show="user">{{user.password.email}}'s Wishlist</h1>
+      <h1 ng-hide="user">Wishlist</h1>
       <a class="btn btn-primary" href="/#/login">Login</a>
-      <a class="btn btn-primary" href="/#/">All Wishes</a>
-      <a class="btn btn-primary" href="/#/new">New Wish</a>
-      <a class="btn btn-primary" href="/#/logout">Logout</a>
+      <a class="btn btn-primary" href="/#/changePassword" ng-show="user">Change Password</a>
+      <a class="btn btn-primary" href="/#/" ng-show="user">All Wishes</a>
+      <a class="btn btn-primary" href="/#/new" ng-show="user">New Wish</a>
+      <a class="btn btn-primary" href="/#/logout" ng-show="user">Logout</a>
       <div ng-view>
 
       </div>
@@ -33,8 +35,8 @@
     <script src="js/controllers/edit.js"></script>
     <script src="js/controllers/show.js"></script>
     <script src="js/controllers/wish.js"></script>
-    <script src="js/controllers/auth.js"></script>
+    <script src="js/controllers/authCtrl.js"></script>
     <script src="js/factories/wishlist.js"></script>
-    <script src="js/factories/auth.js"></script>
+    <script src="js/factories/authFac.js"></script>
   </body>
 </html>

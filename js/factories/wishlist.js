@@ -1,10 +1,19 @@
 ;(function(){
   'use strict';
   angular.module('wishApp')
-  .factory('WishlistFactory', function($http, $location){
+  .factory('WishlistFactory', function(FIREBASE_URL, $rootScope, $http, $location){
+
+    function _wishUrl(id){
+      if (id) {
+        return FIREBASE_URL + '/users/' + $rootScope.user.uid + '/tasks/' + id + '.json';
+      } else {
+        return FIREBASE_URL + '/users/' + $rootScope.user.uid + '/tasks.json';
+      }
+    }
+
     function deleteItem(itemID, cb){
-      var url = 'https://nss-group-wishlist.firebaseio.com/' + itemID + '.json';
-      $http.delete(url)
+      var url = FIREBASE_URL + itemID + '.json';
+      $http.delete(_wishUrl(itemId))
       .success(function(){
         console.log('ITEMSSSSSSS');
         cb();
@@ -14,8 +23,7 @@
       });
     }
     function getItem(id, cb){
-      var url = 'https://nss-group-wishlist.firebaseio.com/' + id + '.json';
-      $http.get(url)
+      $http.get(_wishUrl(id))
       .success(function(data) {
         cb(data);
       })
@@ -24,8 +32,7 @@
       });
     }
     function editItem(id, item){
-      var url = 'https://nss-group-wishlist.firebaseio.com/' + id + '.json';
-      $http.put(url, item)
+      $http.put(_wishUrl(id), item)
         .success(function(data){
           $location.path('/');
         })
@@ -35,7 +42,7 @@
       }
     function getItems(cb){
       var url = 'https://nss-group-wishlist.firebaseio.com/.json';
-      $http.get(url)
+      $http.get(_wishUrl())
         .success(function(data){
           cb(data);
         })
@@ -44,7 +51,7 @@
         });
       }
     function addItem(item, cb){
-      $http.post('https://nss-group-wishlist.firebaseio.com/.json', item)
+      $http.post(_wishUrl(), item)
         .success(function(data){
           cb(data);
           $location.path('/');

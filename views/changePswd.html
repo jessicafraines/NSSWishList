@@ -1,0 +1,15 @@
+<form name="changePasswordForm" ng-submit="auth.changePassword()" novalidate>
+  <div class="form-group" ng-class="{'has-error': changePasswordForm.$dirty && !auth.oldPassword}">
+    <label>old password</label>
+    <input class="form-control" type="password" ng-model="auth.oldPassword" required>
+  </div>
+  <div class="form-group" ng-class="{'has-error': changePasswordForm.$dirty && !auth.newPassword}">
+    <label>new password</label>
+    <input class="form-control" type="password" ng-model="auth.newPassword" required>
+  </div>
+  <div class="form-group" ng-class="{'has-error': changePasswordForm.$dirty && !auth.newPasswordAgain || auth.newPassword!== auth.newPasswordAgain}">
+    <label>new password again</label>
+    <input class="form-control" type="password" ng-model="auth.newPasswordAgain" required>
+  </div>
+  <input type="submit" class="btn btn-primary btn-block" value="change password" ng-class="{disabled: changePasswordForm.$invalid || auth.newPassword !== auth.newPasswordAgain}">
+</form>
