@@ -5,21 +5,52 @@
     var authFactory = {},
     ref = new Firebase(FIREBASE_URL);
 
-  factory.login = function(){
-  
+  authFactory.login = function(email, pswd, cb){
+    ref.authWithPassword({
+        email : email,
+        password: pswd
+      }, function(error, authData){
+        if(error === null) {
+          cb();
+        } else {
+          alert('Login unsuccessful');
+        }
+      }
+    );
   };
 
-  factory.logout = function(){
-  
+  authFactory.logout = function(cb){
+    ref.unauth(function(){
+      cb();
+    });
   };
 
-  factory.register = function(){
-  
+  authFactory.register = function(email, pswd, cb){
+    ref.createUser({
+      email : email,
+      password : pswd
+    }, function (error){
+      if (error === null){
+        cb();
+      }else{
+        alert("Oops, something didn't work. Please try again");
+      }
+    }
+    );
   };
 
-  factory.resetPassword = function(){
-  
+  authFactory.forgotPassword = function(email, cb){
+    ref.resetPassword({
+      email : email
+    }, function(error){
+      if(error === null){
+        alert('Password reset email sent, check your mail');
+      } else {
+        alert('Email address not recognized, please try again');
+      }
+    }
+  );
   };
   return authFactory;
-  };
+  })
 }());
