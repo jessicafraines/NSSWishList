@@ -20,17 +20,12 @@
     })
     .when('/logout', {
       template: '',
-      controller: 'AuthController',
-      resolve: {
-        data: function(authFactory){
-          authFactory.logout();  
-        }
-      }
+      controller: 'LogoutController',
     })
     .when('/changePassword', {
       templateUrl: 'views/changePswd.html',
-      controller: 'AuthController',
-      controllerAs: 'auth',
+      controller: 'ChangePasswordController',
+      controllerAs: 'changepw',
       private: true
     })
     .when('/new', {
